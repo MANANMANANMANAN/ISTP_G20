@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./routes/AppRoutes";
+import Navbar from "./components/Navbar";
+import OverlayMenu from "./components/OverlayMenu";
+import { MenuProvider } from "./context/MenuContext";
+import { useEffect } from "react";
+import initSmoothScroll from "./utils/smoothScroll";
+import { setupScroll } from "./utils/gsapSetup";
+import gsap from "./utils/gsapSetup";
 function App() {
+  useEffect(() => {
+    const lenis = initSmoothScroll();
+        function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Sync with GSAP
+    lenis.on("scroll", () => {
+      gsap.ticker.tick();
+    });
+    // setupScroll(lenis);
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MenuProvider>
+      <BrowserRouter>
+        <Navbar />
+        <OverlayMenu />
+        <AppRoutes />
+      </BrowserRouter>
+    </MenuProvider>
   );
 }
 

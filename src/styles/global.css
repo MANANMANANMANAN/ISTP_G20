@@ -1,0 +1,774 @@
+body {
+  margin: 0;
+  font-family: serif;
+  background: #0e0e0e;
+  color: #f5f5f5;
+}
+
+/* .hero {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #1a1a1a, #000);
+  z-index: 0;
+}
+
+/* .hero-video {
+  position: relative;
+  z-index: 1;
+} */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  font-size: 2rem;
+}
+
+/* .parallax {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax img {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+} */
+
+/* .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #111;
+  transform: translateY(-100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+} */
+/* .navbar {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+} */
+
+button {
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: 1px solid #888;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Himalayan vibe */
+.hero-text h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
+.parallax-text {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  font-size: 2rem;
+}
+
+/* Overlay menu style */
+.overlay {
+  background: linear-gradient(180deg, #1a1a1a, #000);
+}
+
+/* .overlay a {
+  font-size: 2rem;
+  color: #e0c097;
+  text-decoration: none;
+} */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  overflow: auto;
+}
+
+#root {
+  min-height: 100vh;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  z-index: 9999; /* 🔥 THIS FIXES YOUR ISSUE */
+
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+
+  transform: translateY(-100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.overlay a {
+  font-size: 2.5rem;
+  color: #e6c48a;
+}
+.parallax {
+  height: 120vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-img {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+}
+
+.intro-bridge {
+  height: 120vh;
+  position: relative;
+}
+
+.intro-bridge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+.intro-text {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  max-width: 500px;
+}
+
+/* ── IntroBridge: sticky image + overlapping panel ── */
+
+.intro-wrapper {
+  position: relative;
+}
+
+/* The sticky image container — stays pinned while you scroll through the wrapper */
+.intro-sticky-image {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.intro-sticky-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Empty spacer — controls how long the image stays visible before panel arrives */
+.intro-spacer {
+  height: 60vh;
+  /* negative margin pulls it behind the sticky image layer, no white gap */
+  margin-top: -100vh;
+  position: relative;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* The overlapping content panel */
+.intro-overlap-panel {
+  position: relative;
+  z-index: 2;
+  background: #0e0e0e;
+  border-radius: 16px 16px 0 0;
+  padding: 5rem 10%;
+  min-height: 60vh;
+  /* Pulls up so it visually slides over the image */
+  margin-top: -6rem;
+}
+
+.intro-overlap-panel h2 {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  color: #e6c48a;
+  margin-bottom: 1rem;
+}
+
+.intro-overlap-panel p {
+  font-size: 1.2rem;
+  color: #aaa;
+  max-width: 520px;
+  line-height: 1.8;
+}
+
+/* ── Contained image gallery grid ── */
+
+.gallery-section {
+  padding: 6rem 8%;
+  background: #0e0e0e;
+}
+
+.gallery-label {
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 2rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Override parallax to be a contained box, not full-bleed */
+.gallery-grid .parallax {
+  height: 60vh;        /* fixed box height instead of 120vh */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.gallery-grid .parallax-img {
+  height: 130%;        /* still slightly taller for parallax room */
+  border-radius: 8px;
+}
+
+.gallery-grid .parallax-text {
+  bottom: 10%;
+  left: 8%;
+}
+
+.gallery-grid .parallax-text h2 {
+  font-size: 1.5rem;
+  color: #e6c48a;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Navbar ── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Cinzel:wght@400;600&display=swap');
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.6rem 3rem;
+  box-sizing: border-box;
+
+  /* Glassmorphism — subtle, not gaudy */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  transition: background 0.4s ease, padding 0.4s ease;
+}
+
+/* Compact on scroll */
+.navbar--scrolled {
+  padding: 1rem 3rem;
+  background: rgba(8, 8, 8, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(230, 196, 138, 0.12);
+}
+
+/* Brand */
+.navbar__brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  text-decoration: none;
+}
+
+.navbar__brand-main {
+  font-family: 'Cinzel', serif;
+  font-size: 2.35rem;
+  font-weight: 600;
+  letter-spacing: 5px;
+  color: #e6c48a;
+}
+
+.navbar__brand-sub {
+  font-family: 'Cinzel', serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: 4px;
+  color: rgba(230, 196, 138, 0.55);
+  border-left: 1px solid rgba(230, 196, 138, 0.3);
+  padding-left: 0.5rem;
+  margin-left: 0.2rem;
+}
+
+/* Center tagline */
+.navbar__tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Hide tagline on small screens */
+@media (max-width: 700px) {
+  .navbar__tagline { display: none; }
+  .navbar { padding: 1.2rem 1.5rem; }
+}
+
+/* Toggle button */
+.navbar__toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.navbar__toggle-label {
+  font-family: 'Cinzel', serif;
+  font-size: 1.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+}
+
+.navbar__toggle:hover .navbar__toggle-label {
+  color: #e6c48a;
+}
+
+/* Hamburger bars */
+.navbar__hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 26px;
+}
+
+.bar {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #e6c48a;
+  transition: transform 0.35s ease, opacity 0.35s ease, width 0.35s ease;
+  transform-origin: center;
+}
+
+/* Short middle bar for asymmetry */
+.bar2 { width: 65%; align-self: flex-end; }
+
+/* Animate to X when open */
+.bar1.open { transform: translateY(6px) rotate(45deg); width: 100%; }
+.bar2.open { opacity: 0; transform: scaleX(0); }
+.bar3.open { transform: translateY(-6px) rotate(-45deg); width: 100%; }
+
+
+/* ── Explore Cards ── */
+
+.cards-section {
+  background: #0a0a0a;
+  padding: 5rem 6%;
+}
+
+.cards-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #e6c48a;
+  margin-bottom: 2.5rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+/* The card itself */
+.card {
+  position: relative;
+  height: 70vh;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Image with slight transparency */
+.card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.72;
+  transform: scale(1);
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.5s ease;
+  display: block;
+}
+
+/* Dark gradient overlay */
+.card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.15) 50%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  transition: background 0.4s ease;
+}
+
+/* Text pinned to bottom */
+.card__body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transform: translateY(0);
+  transition: transform 0.4s ease;
+}
+
+.card__sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(230, 196, 138, 0.7);
+}
+
+.card__title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.card__arrow {
+  font-size: 1.2rem;
+  color: #e6c48a;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.35s ease 0.05s, transform 0.35s ease 0.05s;
+  display: inline-block;
+  margin-top: 0.4rem;
+}
+
+/* ── Hover state ── */
+.card:hover .card__img {
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+.card:hover .card__overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.25) 55%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+}
+
+.card:hover .card__arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .card { height: 50vh; }
+}
+
+@media (max-width: 600px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .card { height: 55vw; }
+}
+
+/* ══════════════════════════════════════
+   Culture Page
+══════════════════════════════════════ */
+
+.culture-page {
+  background: #0a0a0a;
+  min-height: 100vh;
+}
+
+/* ── Sticky bar ── */
+.culture-sticky-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 0.9rem 6%;
+  background: rgba(8, 8, 8, 0.82);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(230, 196, 138, 0.1);
+  /* Sits BELOW the navbar (z-index 1000) automatically */
+}
+
+.culture-sticky-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #e6c48a;
+  white-space: nowrap;
+}
+
+.culture-sticky-rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(230, 196, 138, 0.18);
+}
+
+.culture-sticky-hint {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+  white-space: nowrap;
+}
+
+/* ── Hero title block ── */
+.culture-hero {
+  padding: 10vh 6% 6vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.culture-hero-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(230, 196, 138, 0.5);
+  margin: 0;
+}
+
+.culture-hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(4rem, 10vw, 9rem);
+  font-weight: 400;
+  letter-spacing: 6px;
+  color: #f0e6d0;
+  margin: 0;
+  line-height: 1;
+  /* Slight text shadow for depth */
+  text-shadow: 0 4px 40px rgba(0,0,0,0.6);
+}
+
+.culture-hero-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.9;
+  max-width: 520px;
+  margin: 0;
+}
+
+/* ── Card wrapper: meta text + parallax image box ── */
+.culture-card-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 0;
+  align-items: start;
+  padding: 4vh 0 4vh 6%;
+  position: relative;
+}
+
+/* Alternate: image left, text right */
+.culture-card-wrap--alt {
+  grid-template-columns: 1.6fr 1fr;
+  padding: 4vh 6% 4vh 0;
+}
+
+.culture-card-wrap--alt .culture-card-meta {
+  order: 2;
+  padding-left: 6%;
+  padding-right: 0;
+}
+
+.culture-card-wrap--alt .culture-card-parallax {
+  order: 1;
+}
+
+/* Meta: number + text */
+.culture-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-right: 6%;
+  /* Sticky so text "slides" against the fixed image as you scroll */
+  position: sticky;
+  top: 80px;          /* below sticky bar */
+  align-self: start;
+  padding-top: 3vh;
+}
+
+.culture-card-num {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  color: rgba(230, 196, 138, 0.4);
+}
+
+.culture-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.culture-card-heading {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 400;
+  color: #e6c48a;
+  margin: 0;
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
+
+.culture-card-body {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.9;
+  margin: 0;
+  max-width: 340px;
+}
+
+/* Parallax image contained in a box */
+.culture-card-parallax .parallax {
+  height: 80vh;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.culture-card-parallax .parallax-img {
+  height: 130%;
+}
+
+/* Hide the parallax text label (we have our own headings) */
+.culture-card-parallax .parallax-text {
+  display: none;
+}
+
+/* ── Divider between cards ── */
+.culture-divider {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 5vh 6%;
+}
+
+.culture-divider span {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.07);
+}
+
+.culture-divider p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.65rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  white-space: nowrap;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .culture-card-wrap,
+  .culture-card-wrap--alt {
+    grid-template-columns: 1fr;
+    padding: 3vh 5%;
+  }
+
+  .culture-card-wrap--alt .culture-card-meta { order: 0; padding-left: 0; }
+  .culture-card-wrap--alt .culture-card-parallax { order: 1; }
+
+  .culture-card-meta {
+    position: static;
+    padding-right: 0;
+  }
+
+  .culture-card-parallax .parallax { height: 55vw; }
+}
+
+
+/* ── VideoHero responsive ── */
+@media (max-width: 768px) {
+  .hero {
+    height: 100svh; /* safe viewport height on mobile browsers */
+  }
+}
