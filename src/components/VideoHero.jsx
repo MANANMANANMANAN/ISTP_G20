@@ -8,6 +8,7 @@ export default function VideoHero() {
 
   useEffect(() => {
     const video = videoRef.current;
+    const container = containerRef.current;
     let tl; // keep reference to kill later
 
     const onLoaded = () => {
@@ -38,6 +39,7 @@ tl.to(video, {
 
     return () => {
       video.removeEventListener("loadedmetadata", onLoaded);
+
       // ✅ Kill the timeline and its ScrollTrigger before React removes the DOM
       if (tl) {
         tl.scrollTrigger?.kill();
@@ -45,7 +47,7 @@ tl.to(video, {
       }
       // ✅ Also kill any ScrollTriggers attached to this container (safety net)
       ScrollTrigger.getAll()
-        .filter(st => st.trigger === containerRef.current)
+        .filter(st => st.trigger === container)
         .forEach(st => st.kill());
     };
   }, []);

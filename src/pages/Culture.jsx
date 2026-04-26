@@ -4,7 +4,7 @@ import gsap from "../utils/gsapSetup";
 
 export default function Culture() {
   const titleRef = useRef();
-  const numRef = useRef();
+  // const numRef = useRef();
 
   // useEffect(() => {
   //   // Subtle title drift as page scrolls

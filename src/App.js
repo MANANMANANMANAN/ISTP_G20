@@ -5,7 +5,7 @@ import OverlayMenu from "./components/OverlayMenu";
 import { MenuProvider } from "./context/MenuContext";
 import { useEffect } from "react";
 import initSmoothScroll from "./utils/smoothScroll";
-import { setupScroll } from "./utils/gsapSetup";
+// import { setupScroll } from "./utils/gsapSetup";
 import gsap from "./utils/gsapSetup";
 function App() {
   useEffect(() => {
